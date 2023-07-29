@@ -45,7 +45,7 @@ export default function Upload({fileList, setFileList}: any) {
                   className="w-full h-16 flex items-center justify-between rounded p-3 bg-white"
                 >
                   <div className="flex flex-row items-center gap-2">
-                    <span className="truncate w-full">{file.name}</span>
+                    <span className="truncate max-w-[280px]">{file.name}</span>
                   </div>
                   <div
                     onClick={() => {

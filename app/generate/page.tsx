@@ -2,14 +2,12 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Upload from "../../components/Upload";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import LoadingDots from "../../components/LoadingDots";
 import ResizablePanel from "../../components/ResizablePanel";
-import appendNewToName from "../../utils/appendNewToName";
-import downloadPhoto from "../../utils/downloadPhoto";
 
 export default function GeneratePage() {
   const [documents, setDocuments] = useState<any>(null);
@@ -21,12 +19,16 @@ export default function GeneratePage() {
   const [podcastName, setPodcastName] = useState<string>("");
   const [instructions, setInstructions] = useState<string>("");
 
-  function handleDownload(){
-    console.log("download clicked")
-    alert("download clicked")
+  function handleDownload() {
+    console.log("download clicked");
+    alert("download clicked");
   }
 
   async function generateAudio() {
+    if (!podcastName) {
+      setError("Please write a name for the podcast");
+      return;
+    }
     await new Promise((resolve) => setTimeout(resolve, 200));
     try {
       setGeneratedAudio(null);
@@ -46,7 +48,7 @@ export default function GeneratePage() {
 
       const res = await fetch("/generate-podcast", {
         method: "POST",
-        body: formData
+        body: formData,
       });
 
       console.log("res: ", res);
@@ -88,12 +90,15 @@ export default function GeneratePage() {
                         height={30}
                         alt="1 icon"
                       />
-                      <p className="text-left font-medium">Write a name.</p>
+                      <p className="text-left font-medium">Write a name</p>
                     </div>
                     <div className="relative block text-left">
                       <input
                         type="text"
-                        onChange={(e) => setPodcastName(e.target.value)}
+                        onChange={(e) => {
+                          e.target.value.length > 0 && setError("");
+                          setPodcastName(e.target.value);
+                        }}
                         value={podcastName}
                         className="w-full text-black"
                       />
@@ -108,7 +113,7 @@ export default function GeneratePage() {
                         alt="2 icon"
                       />
                       <p className="text-left font-medium">
-                        Specify instructions.
+                        Specify instructions (optional)
                       </p>
                     </div>
                     <div className="relative block text-left">
@@ -127,9 +132,7 @@ export default function GeneratePage() {
                         height={30}
                         alt="3 icon"
                       />
-                      <p className="text-left font-medium">
-                        Upload your PDF's.
-                      </p>
+                      <p className="text-left font-medium">Upload your PDF's</p>
                     </div>
                   </div>
                 </>
@@ -164,7 +167,11 @@ export default function GeneratePage() {
                     onClick={() => {
                       generateAudio();
                     }}
-                    className="bg-blue-500 rounded-full text-white font-medium px-4 py-2 mt-8 hover:bg-blue-500/80 transition"
+                    className={`bg-blue-500 rounded-full text-white font-medium px-4 py-2 mt-8 ${
+                      !podcastName
+                        ? "opacity-50"
+                        : "opacity-100 hover:bg-blue-500/80"
+                    }  transition`}
                   >
                     Generate New Podcast
                   </button>

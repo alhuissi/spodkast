@@ -3,8 +3,8 @@ import "../styles/globals.css";
 
 let title = "PDF to Podcast";
 let description = "Generate customizable audio from your PDF files seconds.";
-let ogimage = "";
-let sitename = "";
+let ogimage = "https://spodkest.vercel.app/og-image.png";
+let sitename = "spodkest.vercel.app";
 
 export const metadata: Metadata = {
   title,
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     images: [ogimage],
     title,
     description,
-    url: "",
+    url: "https://spodkest.vercel.app/",
     siteName: sitename,
     locale: "en_US",
     type: "website",
