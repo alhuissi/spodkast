@@ -3,7 +3,7 @@ import { AuthContextProvider } from "./src/context/AuthContext";
 import "../styles/globals.css";
 
 let title = "PDF to Podcast";
-let description = "Generate customizable audio from your PDF files in seconds.";
+let description = "Generate customizable audio from your PDF files.";
 let ogimage = "https://spodkest.vercel.app/og-image.png";
 let sitename = "spodkest.vercel.app";
 

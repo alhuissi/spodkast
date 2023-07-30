@@ -32,7 +32,7 @@ export default function Header({user}: any) {
           height={24}
         />
         <h1 className="sm:text-3xl text-xl font-bold ml-2 tracking-tight">
-          Spodkest
+          Spodkast
         </h1>
       </Link>
       {!user && <button className="bg-primary-600 rounded-xl text-white font-medium px-4 py-2 hover:bg-primary-700 transition" onClick={goToLogin}>Login</button>}

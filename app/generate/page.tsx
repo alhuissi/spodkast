@@ -117,7 +117,9 @@ export default function GeneratePage() {
                         height={30}
                         alt="1 icon"
                       />
-                      <p className="text-left font-medium">Write a name for the podcast:</p>
+                      <p className="text-left font-medium">
+                        Write a name for the podcast:
+                      </p>
                     </div>
                     <div className="relative block text-left">
                       <input
@@ -204,6 +206,11 @@ export default function GeneratePage() {
                   </button>
                 )}
                 {podcastLoaded && (
+                  <div>
+                    Files uploaded succesfully! We'll send the results to your
+                    email in just a few minutes.
+                  </div>
+                  /*}
                   <button
                     onClick={() => {
                       handleDownload();
@@ -211,7 +218,7 @@ export default function GeneratePage() {
                     className="bg-white rounded-full text-black border font-medium px-4 py-2 mt-8 hover:bg-gray-100 transition"
                   >
                     Download Generated Podcast
-                  </button>
+                  </button>*/
                 )}
               </div>
             </motion.div>
