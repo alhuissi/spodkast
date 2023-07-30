@@ -1,8 +1,9 @@
 import { Metadata } from "next";
+import { AuthContextProvider } from "./src/context/AuthContext";
 import "../styles/globals.css";
 
 let title = "PDF to Podcast";
-let description = "Generate customizable audio from your PDF files seconds.";
+let description = "Generate customizable audio from your PDF files in seconds.";
 let ogimage = "https://spodkest.vercel.app/og-image.png";
 let sitename = "spodkest.vercel.app";
 
@@ -36,8 +37,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#17181C] text-white">
+      <body className="bg-[#171823] text-white">
+        <AuthContextProvider>
         {children}
+        </AuthContextProvider>
       </body>
     </html>
   );
