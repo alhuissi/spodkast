@@ -94,5 +94,6 @@ export async function sendMessage({ conversationId, message, user }) {
     throw new Error(`Error sending message: ${response.statusText}`);
   }
   const result = await response.json();
+  console.log("response: ", result)
   return result.message;
 }

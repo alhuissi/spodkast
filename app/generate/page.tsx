@@ -71,7 +71,7 @@ export default function GeneratePage() {
         body: formData,
       });
 
-      console.log("res: ", res);
+      //console.log("res: ", res);
 
       await createSpodkast({
         author: user.uid,
@@ -207,7 +207,7 @@ export default function GeneratePage() {
                 )}
                 {podcastLoaded && (
                   <div>
-                    Files uploaded succesfully! We'll send the results to your
+                    Files uploaded successfully! We'll send the results to your
                     email in just a few minutes.
                   </div>
                   /*}
