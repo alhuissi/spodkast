@@ -7,7 +7,6 @@ import { getAuth } from "firebase/auth";
 export default function Header({user}: any) {
   const router = useRouter();
   const auth = getAuth();
-  console.log("user:", user)
 
   const goToLogin = () => {
     console.log("login")

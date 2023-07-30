@@ -1,47 +1,8 @@
 import { getAuth } from "firebase/auth";
-import { firebaseApp, getIdToken } from "@/firebase";
+import { firebaseApp, getIdToken } from "../../firebase";
 
 // Initialize Firebase and PubSub here
 const auth = getAuth(firebaseApp);
-
-export async function retrieveOutputs({
-  author,
-  user,
-  startDate,
-  endDate,
-  spoke,
-}) {
-  const idToken = await getIdToken(); // Get the Firebase ID token
-
-  if (!idToken) {
-    throw new Error("User not authenticated");
-  }
-
-  const command_author = author ? author : "#frontendAgent#";
-  const command_user = user ? user : auth.currentUser.uid;
-  const command_startDate = startDate ? startDate : "undefined";
-  const command_endDate = endDate ? endDate : "undefined";
-  const command_spoke = spoke ? spoke : "all";
-
-  const message = `##retrieve-outputs author=${command_author} user=${command_user} minDate=${command_startDate} maxDate=${command_endDate} spokeId=${command_spoke}`;
-  const response = await sendMessage({
-    conversationId: "temp",
-    message,
-    user: command_author,
-  });
-  const json_response = JSON.stringify(JSON.parse(response), null, 2);
-
-  const blob = new Blob([json_response], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "output.json";
-  a.click();
-
-  // Clean up the object URL
-  URL.revokeObjectURL(url);
-}
 
 export async function cleanConversations({ author, user }) {
   const idToken = await getIdToken(); // Get the Firebase ID token
