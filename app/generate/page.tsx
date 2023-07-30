@@ -18,7 +18,7 @@ export default function GeneratePage() {
 
   useEffect(() => {
     //console.log("user: ", user)
-    if (user == null) router.push("/");
+    //if (user == null) router.push("/");
   }, [user]);
 
   const [documents, setDocuments] = useState<any>(null);

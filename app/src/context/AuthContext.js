@@ -1,6 +1,7 @@
-'use client'
+"use client";
 import React from "react";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
+import LoadingDots from "../../../components/LoadingDots";
 import { firebaseApp } from "../../firebase";
 
 const auth = getAuth(firebaseApp);
@@ -28,7 +29,13 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ user }}>
-      {loading ? <div>Loading...</div> : children}
+      {loading ? (
+        <div className="pt-4 mx-auto text-center justify-center w-full h-full mt-96">
+          <LoadingDots color="white" style="large" />
+        </div>
+      ) : (
+        children
+      )}
     </AuthContext.Provider>
   );
 };

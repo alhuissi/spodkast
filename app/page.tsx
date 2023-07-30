@@ -13,7 +13,7 @@ export default function HomePage() {
   console.log("user: ", user)
 
   const handleGeneratePodcast = async () => {
-    if(user == null) return router.push("signin")
+    //if(user == null) return router.push("signin")
     router.push("/generate");
   };
 

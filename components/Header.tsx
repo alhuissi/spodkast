@@ -35,8 +35,8 @@ export default function Header({user}: any) {
           Spodkest
         </h1>
       </Link>
-      {!user && <button className="bg-primary-600 rounded-xl text-white font-medium px-4 py-2 hover:bg-primary-700 transition" onClick={goToLogin}>Login</button>}
-      {user && <button className="bg-primary-600 rounded-xl text-white font-medium px-4 py-2 hover:bg-primary-700transition"  onClick={logout}>Logout</button>}
+      {/*!user && <button className="bg-primary-600 rounded-xl text-white font-medium px-4 py-2 hover:bg-primary-700 transition" onClick={goToLogin}>Login</button>*/}
+      {/*user && <button className="bg-primary-600 rounded-xl text-white font-medium px-4 py-2 hover:bg-primary-700transition"  onClick={logout}>Logout</button>*/}
     </header>
   );
 }
