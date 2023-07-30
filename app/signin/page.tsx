@@ -18,6 +18,10 @@ function Page() {
     }
   };
 
+  const handleGoToRegister = () => {
+    router.push("/signup");
+  };
+
   const handleForm = async (event: any) => {
     event.preventDefault();
 
@@ -77,13 +81,27 @@ function Page() {
               <br />
             </form>
             <div className="text-center">
-            <span className="text-black">or</span></div>
+              <span className="text-black">or</span>
+            </div>
             <button
               className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               onClick={() => handleLoginWithGoogle()}
             >
               Sign in with Google
             </button>
+            <div className="text-center">
+              <span className="text-black">
+                Don't have an account?{" "}
+                <span
+                  onClick={() => handleGoToRegister()}
+                  className="text-black cursor-pointer transition hover:text-gray-500 underline
+                  "
+                >
+                  {" "}
+                  Register here
+                </span>
+              </span>
+            </div>
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function GeneratePage() {
 
   useEffect(() => {
     //console.log("user: ", user)
-    //if (user == null) router.push("/");
+    if (user == null) router.push("/");
   }, [user]);
 
   const [documents, setDocuments] = useState<any>(null);
@@ -117,7 +117,7 @@ export default function GeneratePage() {
                         height={30}
                         alt="1 icon"
                       />
-                      <p className="text-left font-medium">Write a name</p>
+                      <p className="text-left font-medium">Write a name for the podcast:</p>
                     </div>
                     <div className="relative block text-left">
                       <input
@@ -140,7 +140,7 @@ export default function GeneratePage() {
                         alt="2 icon"
                       />
                       <p className="text-left font-medium">
-                        Specify instructions (optional)
+                        Specify instructions (optional):
                       </p>
                     </div>
                     <div className="relative block text-left">
@@ -159,7 +159,7 @@ export default function GeneratePage() {
                         height={30}
                         alt="3 icon"
                       />
-                      <p className="text-left font-medium">Upload your PDF's</p>
+                      <p className="text-left font-medium">Upload your PDFs:</p>
                     </div>
                   </div>
                 </>
