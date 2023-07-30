@@ -10,7 +10,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import LoadingDots from "../../components/LoadingDots";
 import ResizablePanel from "../../components/ResizablePanel";
-import { saveSpodkest } from "../src/services/spodkest";
+import { createSpodkast } from "../src/services/spodkast";
 
 export default function GeneratePage() {
   const { user }: any = useAuthContext();
@@ -73,7 +73,7 @@ export default function GeneratePage() {
 
       console.log("res: ", res);
 
-      await saveSpodkest({
+      await createSpodkast({
         author: user.uid,
         name: podcastName,
         inputFiles: pdfUrls,
