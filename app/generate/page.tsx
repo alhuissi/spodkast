@@ -64,7 +64,7 @@ export default function GeneratePage() {
           ",";
         formData.append("files", file);
       });
-      console.log("pdfUrls: ", pdfUrls);
+      pdfUrls = pdfUrls.slice(0, -1)
 
       const res = await fetch("/generate-podcast", {
         method: "POST",
