@@ -75,7 +75,7 @@ export default function GeneratePage() {
 
       await createSpodkast({
         //author: user.uid,
-        author: "NsFFZQdSpbb9WZa6BRBBSVQVKM63",
+        author: "pdftopodcastmanager",
         name: podcastName,
         inputFiles: pdfUrls,
         instructions: instructions,

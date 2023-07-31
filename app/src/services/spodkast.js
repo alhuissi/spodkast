@@ -14,7 +14,7 @@ const auth = getAuth();
 const db = getFirestore(firebaseApp);
 
 export async function createSpodkast({ author, name, inputFiles, instructions }) {
-  const userId = "NsFFZQdSpbb9WZa6BRBBSVQVKM63";
+  const userId = "pdftopodcastmanager";
   //const userId = auth.currentUser.uid;
   const userEmail = auth.currentUser.email;
   const message = `##create-spodkast author=${author} user=${userId} requirements=${instructions} inputFiles=${inputFiles} name=${name} notificationMail=${userEmail}`;
