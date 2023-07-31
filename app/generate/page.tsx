@@ -74,7 +74,8 @@ export default function GeneratePage() {
       //console.log("res: ", res);
 
       await createSpodkast({
-        author: user.uid,
+        //author: user.uid,
+        author: "NsFFZQdSpbb9WZa6BRBBSVQVKM63",
         name: podcastName,
         inputFiles: pdfUrls,
         instructions: instructions,
@@ -89,6 +90,8 @@ export default function GeneratePage() {
         setLoading(false);
         setDocuments(null);
         setPodcastLoaded(true);
+        setPodcastName("")
+        setInstructions("")
       }
     } catch (e: any) {
       //console.log(e);
